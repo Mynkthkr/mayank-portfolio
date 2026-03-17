@@ -1,0 +1,433 @@
+.loading-screen {
+  position: fixed;
+  width: 100vw;
+  height: var(--vh);
+  background-color: #0a0e17;
+  z-index: 999999999;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
+
+.loading-button {
+  padding: 30px 40px;
+  border-radius: 12px;
+  background-color: rgba(13, 17, 23, 0.85);
+  border: 1px solid rgba(0, 230, 118, 0.3);
+  box-shadow:
+    -10px 10px 30px rgba(0, 230, 118, 0.1),
+    inset 0 0 20px rgba(50, 108, 229, 0.2);
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateX(15deg) rotateY(-10deg);
+  animation: floatButton 6s ease-in-out infinite alternate;
+  font-size: 15px;
+  font-weight: 500;
+  position: relative;
+  z-index: 9;
+  font-family: 'JetBrains Mono', monospace;
+  color: #e6edf3;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-start;
+  min-width: 380px;
+}
+
+@keyframes floatButton {
+  0% {
+    transform: perspective(1000px) rotateX(15deg) rotateY(-10deg) translateY(0);
+    box-shadow: -10px 10px 30px rgba(0, 230, 118, 0.1), inset 0 0 20px rgba(50, 108, 229, 0.2);
+  }
+
+  100% {
+    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateY(-15px);
+    box-shadow: -20px 20px 40px rgba(0, 230, 118, 0.2), inset 0 0 30px rgba(50, 108, 229, 0.3);
+  }
+}
+
+.loading-button::before {
+  content: "";
+  background-color: rgba(0, 230, 118, 0.3);
+  top: var(--mouse-y);
+  left: var(--mouse-x);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  z-index: 99;
+  filter: blur(60px);
+  opacity: 0;
+  transform: translate(-50%, -50%);
+}
+
+.loading-button:hover::before {
+  opacity: 1;
+}
+
+.loading-clicked .loading-button::before {
+  opacity: 0;
+}
+
+.loading-wrap {
+  --Lsize: 170px;
+  padding: 4px;
+  position: relative;
+  min-width: 0px;
+  min-height: 0px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(0, 230, 118, 0.15), rgba(50, 108, 229, 0.15));
+  overflow: hidden;
+  transition: 0.8s ease-in-out;
+  transition-delay: 0.2s;
+  box-shadow: 0px 0px 40px 0px rgba(0, 230, 118, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-clicked {
+  transition-delay: 0ms;
+  transition-timing-function: cubic-bezier(0.33, 0.11, 1, 0.72);
+  transform: scale(1);
+  min-width: calc(100vw + 5000px);
+  border-radius: 5000px;
+  min-height: calc(100vh + 500px);
+  box-shadow: none;
+}
+
+.loading-clicked .loading-button {
+  overflow: hidden;
+  animation: none;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) !important;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.loading-hover {
+  background: linear-gradient(135deg, rgba(0, 230, 118, 0.4), rgba(50, 108, 229, 0.3));
+  width: 250px;
+  height: 120px;
+  position: absolute;
+  top: var(--mouse-y);
+  left: var(--mouse-x);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(30px);
+  opacity: 1;
+  transition: opacity 500ms;
+}
+
+.loading-wrap:hover .loading-hover {
+  opacity: 1;
+}
+
+.loading-clicked:hover .loading-hover,
+.loading-clicked .loading-hover {
+  opacity: 0;
+}
+
+.loading-content {
+  position: relative;
+  background-color: transparent;
+  width: 100%;
+  overflow: hidden;
+  transition: 0.6s;
+  text-transform: uppercase;
+}
+
+.loading-content-in {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Fira Code', monospace;
+  letter-spacing: 1px;
+}
+
+.loading-content2 {
+  position: relative;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  width: 100%;
+  font-family: 'Orbitron', sans-serif;
+  color: var(--accentColor4);
+  font-weight: 600;
+  opacity: 0.6;
+  text-align: left;
+  transition: 1s;
+}
+
+.loading-complete .loading-content2 {
+  opacity: 1;
+  color: var(--accentColor);
+  text-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+  transform: translateZ(20px);
+}
+
+.loading-content span {
+  font-weight: 300;
+  opacity: 0.7;
+  color: var(--accentColor);
+}
+
+.loading-box {
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 22px;
+  background-color: var(--accentColor);
+  animation: blink 1s linear infinite;
+  border-radius: 2px;
+}
+
+.loading-icon {
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.loading-complete .loading-icon {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.loading-clicked .loading-icon {
+  transition-delay: 0s;
+  transition: 1s;
+  transform: translateX(200px);
+}
+
+
+.loading-container {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  transition: 1s;
+  z-index: 9;
+  transform: translateZ(10px);
+}
+
+.loading-complete .loading-container {
+  max-width: none;
+}
+
+.loading-header {
+  width: var(--cWidth);
+  max-width: var(--cMaxWidth);
+  position: fixed;
+  z-index: 9999999999;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 20px 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  color: var(--accentColor);
+}
+
+.loader-title {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 3px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.loading-complete .loading-box {
+  animation: blinkDone 0.3s forwards;
+  animation-delay: 1s;
+  opacity: 1;
+}
+
+@keyframes blinkDone {
+  to {
+    opacity: 0;
+  }
+}
+
+.loaderGame-container {
+  width: 200px;
+  transition: 0.3s;
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+  transform: scale(0.4);
+  transform-origin: top right;
+}
+
+.loader-out .loaderGame-container {
+  opacity: 0;
+}
+
+.loaderGame-in {
+  width: 1200px;
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  animation: loaderGame 7s linear infinite;
+}
+
+@keyframes loaderGame {
+  0% {
+    transform: translateX(0px);
+  }
+
+  100% {
+    transform: translateX(-300px);
+  }
+}
+
+.loaderGame-line {
+  float: left;
+  margin: 0px 20px;
+  margin-bottom: 40px;
+  position: relative;
+  width: 10px;
+  height: 60px;
+  background-color: var(--accentColor);
+  display: block;
+  opacity: 0.5;
+  border-radius: 2px;
+}
+
+.loaderGame-line:nth-child(2n) {
+  margin-top: 40px;
+  margin-bottom: 0px;
+}
+
+.loaderGame-ball {
+  position: absolute;
+  left: 20%;
+  top: 0%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--accentColor);
+  animation: ball25 7s infinite;
+  transform: translateY(10px);
+  animation-timing-function: cubic-bezier(0.3, 1.18, 0.63, 1.28);
+  box-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+}
+
+.loading-marquee {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  color: rgba(0, 230, 118, 0.06);
+  font-size: 60px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.loading-marquee span {
+  padding: 0px 50px;
+  position: relative;
+}
+
+.loading-marquee span::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: rgba(0, 230, 118, 0.1);
+  position: absolute;
+  top: 50%;
+  border-radius: 50px;
+  left: 0px;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes ball25 {
+  0% {
+    transform: translateY(70px);
+  }
+
+  15% {
+    transform: translateY(10px);
+  }
+
+  30% {
+    transform: translateY(70px);
+  }
+
+  45% {
+    transform: translateY(10px);
+  }
+
+  67% {
+    transform: translateY(70px);
+  }
+
+  80% {
+    transform: translateY(10px);
+  }
+
+  90% {
+    transform: translateY(70px);
+  }
+
+  100% {
+    transform: translateY(70px);
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .loading-wrap {
+    --Lsize: 210px;
+  }
+
+  .loading-button {
+    padding: 40px 60px;
+    font-size: 20px;
+  }
+
+  .loading-container {
+    left: 0px;
+  }
+
+  .loading-marquee {
+    font-size: 100px;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .loading-header {
+    padding: 20px 0px;
+  }
+
+  .loader-title {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .loading-header {
+    padding: 35px 0px;
+  }
+
+  .loader-title {
+    font-size: 20px;
+  }
+}

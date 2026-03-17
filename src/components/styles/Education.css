@@ -1,0 +1,168 @@
+.edu-section {
+    position: relative;
+    z-index: 2;
+    background-color: var(--backgroundColor);
+    padding: 120px 0;
+    min-height: 80vh;
+}
+
+.edu-container {
+    margin: auto;
+}
+
+.edu-header {
+    margin-bottom: 80px;
+}
+
+.edu-label {
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    color: rgba(0, 230, 118, 0.5);
+    letter-spacing: 2px;
+    margin: 0 0 10px 0;
+    font-weight: 400;
+}
+
+.edu-section h2 {
+    font-size: 70px;
+    line-height: 70px;
+    font-weight: 500;
+    background: linear-gradient(180deg, #e6edf3 0%, #326CE5 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.edu-section h2>span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 300;
+    -webkit-text-fill-color: var(--accentColor);
+}
+
+.edu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.edu-card {
+    background: rgba(22, 27, 34, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    padding: 36px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.edu-card:hover {
+    border-color: rgba(50, 108, 229, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.edu-card-main {
+    border-color: rgba(50, 108, 229, 0.1);
+}
+
+.edu-card-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    background: rgba(50, 108, 229, 0.1);
+    border: 1px solid rgba(50, 108, 229, 0.2);
+    color: #326CE5;
+}
+
+.edu-badge-cert {
+    background: rgba(255, 153, 0, 0.1);
+    border-color: rgba(255, 153, 0, 0.2);
+    color: #FF9900;
+}
+
+.edu-badge-training {
+    background: rgba(0, 230, 118, 0.1);
+    border-color: rgba(0, 230, 118, 0.2);
+    color: #00e676;
+}
+
+.edu-badge-school {
+    background: rgba(139, 148, 158, 0.1);
+    border-color: rgba(139, 148, 158, 0.2);
+    color: #8b949e;
+}
+
+.edu-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: #e6edf3;
+}
+
+.edu-card h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 0 12px 0;
+    color: #8b949e;
+}
+
+.edu-year {
+    font-family: 'Fira Code', monospace;
+    font-size: 13px;
+    color: #58a6ff;
+    letter-spacing: 1px;
+}
+
+.edu-cert-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 8px 16px;
+    background: rgba(0, 230, 118, 0.08);
+    border: 1px solid rgba(0, 230, 118, 0.2);
+    border-radius: 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 12px;
+    color: var(--accentColor);
+}
+
+.edu-cert-badge span {
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 1400px) {
+    .edu-section h2 {
+        font-size: 55px;
+        line-height: 55px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .edu-section {
+        padding: 80px 0;
+    }
+
+    .edu-section h2 {
+        font-size: 40px;
+        line-height: 42px;
+    }
+
+    .edu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .edu-header {
+        margin-bottom: 50px;
+    }
+}

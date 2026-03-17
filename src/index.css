@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400..700&family=Orbitron:wght@400..900&family=Righteous&family=Rubik+Glitch&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@300..700&family=Inter:wght@300..900&display=swap");
+
+:root {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  color: #e6edf3;
+  background-color: var(--backgroundColor);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+
+  /* DevOps Palette */
+  --accentColor: #00e676;
+  /* Terminal green */
+  --accentColor2: #326CE5;
+  /* Kubernetes blue */
+  --accentColor3: #FF9900;
+  /* AWS orange */
+  --accentColor4: #2496ED;
+  /* Docker blue */
+  --accentColor5: #E44D26;
+  /* Jenkins red */
+  --accentGlow: rgba(0, 230, 118, 0.15);
+  --accentGlow2: rgba(50, 108, 229, 0.12);
+  --backgroundColor: #0a0e17;
+  --cardBg: rgba(13, 17, 23, 0.8);
+  --borderColor: rgba(0, 230, 118, 0.15);
+  --surfaceBg: rgba(22, 27, 34, 0.9);
+  --vh: 100vh;
+  --vh: 100svh;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+}
+
+h2 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+h3 {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+h4 {
+  font-family: 'Inter', sans-serif;
+}
+
+h5 {
+  font-family: 'Fira Code', monospace;
+}
+
+h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
+  height: auto;
+  background-color: #050810;
+  flex-grow: 1;
+  --cWidth: calc(100% - 30px);
+  --cMaxWidth: 1920px;
+  max-width: 100vw;
+  overflow-x: hidden;
+  top: 0px !important;
+}
+
+/* Hide Google Translate Top Bar & Tooltips */
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  display: none !important;
+}
+
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
+  display: none !important;
+}
+
+.skiptranslate.goog-te-gadget {
+  display: none !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+/* Animated grid background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(0, 230, 118, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 230, 118, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--accentColor);
+}
+
+main {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.main-active {
+  opacity: 0;
+  animation: fadeIn 1s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+.main-body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.container-main {
+  width: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.container1 {
+  width: var(--cWidth);
+  height: var(--vh);
+  margin: auto;
+  position: relative;
+}
+
+.split-line {
+  overflow: hidden;
+}
+
+.split-h2 {
+  overflow: hidden;
+  display: flex;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+.techstack {
+  width: 100%;
+  position: relative;
+  overflow: clip;
+  height: auto;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 0;
+  padding: 80px 0;
+}
+
+.techstack h2 {
+  font-size: 70px;
+  text-align: center;
+  width: 100%;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  background: linear-gradient(135deg, var(--accentColor), var(--accentColor4));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glowing section divider */
+.section-divider {
+  width: 80%;
+  max-width: 800px;
+  height: 1px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, var(--accentColor), transparent);
+  opacity: 0.3;
+}
+
+/* Page dividers — make each section feel like a separate page */
+.page-divider {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+.page-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 230, 118, 0.2), transparent);
+}
+
+.page-divider-text {
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: rgba(0, 230, 118, 0.35);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    --cWidth: 94%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .techstack h2 {
+    font-size: 40px;
+  }
+
+  .page-divider {
+    padding: 40px 0;
+  }
+
+  .page-divider-text {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+}
