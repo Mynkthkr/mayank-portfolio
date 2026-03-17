@@ -12,6 +12,7 @@
   top: 0;
   z-index: 9999;
   align-items: center;
+  padding: 15px 15px;
 }
 
 .header ul {
@@ -38,6 +39,12 @@
 
 .header ul li:hover {
   color: var(--accentColor);
+}
+
+.header ul li a:focus-visible {
+  outline: 2px solid var(--accentColor);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .navbar-connect {
@@ -98,10 +105,24 @@
   backdrop-filter: blur(8px);
 }
 
+@media only screen and (max-width: 500px) {
+  .lang-label {
+    display: none;
+  }
+  .lang-btn {
+    padding: 6px 8px;
+  }
+}
+
 .lang-btn:hover,
 .lang-btn.active {
   border-color: var(--accentColor);
   background: rgba(0, 230, 118, 0.1);
+}
+
+.lang-btn:focus-visible {
+  outline: 2px solid var(--accentColor);
+  outline-offset: 2px;
 }
 
 .lang-arrow {

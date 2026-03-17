@@ -16,7 +16,7 @@ const About = () => {
           </div>
           <div className="about-text-section">
             <p className="para">
-              DevOps Engineer with 2+ years of experience in designing highly scalable and reliable infrastructure.
+              DevOps Engineer with 2+ years of experience in designing robustly scalable and reliable infrastructure.
               Proven expertise in streamlining deployment processes via robust CI/CD pipelines and ensuring
               comprehensive observability through advanced monitoring and logging. Adept at rapid troubleshooting
               and debugging to maintain high system availability and operational excellence.

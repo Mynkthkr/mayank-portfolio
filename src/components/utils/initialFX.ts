@@ -19,6 +19,16 @@ export function initialFX() {
       linesClass: "split-line",
     }
   );
+
+  // Ensure characters have the correct display and background for the clip effect
+  gsap.set(landingText.chars, {
+    display: "inline-block",
+    webkitBackgroundClip: "text",
+    backgroundClip: "text",
+    webkitTextFillColor: "transparent",
+    background: "linear-gradient(135deg, #e6edf3 0%, #00e676 100%)"
+  });
+
   gsap.fromTo(
     landingText.chars,
     { opacity: 0, y: 80, filter: "blur(5px)" },
@@ -28,8 +38,8 @@ export function initialFX() {
       filter: "blur(0px)",
       ease: "power3.inOut",
       y: 0,
-      stagger: 0.025,
-      delay: 0.3,
+      stagger: 0.05,
+      delay: 0.5,
     }
   );
 

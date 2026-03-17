@@ -65,8 +65,8 @@
   color: #4e4e4e;
   cursor: pointer;
   transition: 0.5s;
-  transform-origin: left bottom;
-  transform: translateX(100%) rotateZ(-90deg);
+  transform-origin: right bottom;
+  transform: rotateZ(-90deg) translateY(100%);
   font-family: 'JetBrains Mono', monospace;
 }
 
